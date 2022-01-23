@@ -5,7 +5,7 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.eth;
 
 // General metadata for Ethereum
-const namePrefix = "Scissors Paper Rock";
+const namePrefix = "ScissorsPaperRock";
 const description = "Remember that game we all use to play? Get ready to collect the (limited range) of NFT's!";
 const baseUri = "ipfs://NewUriToReplace";
 
