@@ -4,7 +4,7 @@ const path = require("path");
 const basePath = process.cwd();
 const fs = require("fs");
 
-const AUTH = 'YOUR API KEY HERE';
+const AUTH = 'f73f2129-eb7a-42e6-aae8-75fc9e714c7f';
 const TIMEOUT = 1000; // Milliseconds. Extend this if needed to wait for each upload. 1000 = 1 second.
 
 const allMetadata = [];

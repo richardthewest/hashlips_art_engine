@@ -172,10 +172,12 @@ const addMetadata = (_dna, _edition) => {
 
 const addAttributes = (_element) => {
   let selectedElement = _element.layer.selectedElement;
-  attributesList.push({
-    trait_type: _element.layer.name,
-    value: selectedElement.name,
-  });
+  if(selectedElement.name.trim().toLowerCase() !== "blank") {
+    attributesList.push({
+      trait_type: _element.layer.name,
+      value: selectedElement.name,
+    });
+  } 
 };
 
 const loadLayerImg = async (_layer) => {
@@ -237,6 +239,7 @@ const constructLayerToDna = (_dna = "", _layers = []) => {
  * @param {String} _dna New DNA string
  * @returns new DNA string with any items that should be filtered, removed.
  */
+
 const filterDNAOptions = (_dna) => {
   const dnaItems = _dna.split(DNA_DELIMITER);
   const filteredDNA = dnaItems.filter((element) => {
@@ -264,6 +267,7 @@ const filterDNAOptions = (_dna) => {
  * @param {String} _dna The entire newDNA string
  * @returns Cleaned DNA string without querystring parameters.
  */
+
 const removeQueryStrings = (_dna) => {
   const query = /(\?.*$)/;
   return _dna.replace(query, "");
@@ -302,6 +306,7 @@ const writeMetaData = (_data) => {
   fs.writeFileSync(`${buildDir}/json/_metadata.json`, _data);
 };
 
+
 const saveMetaDataSingleFile = (_editionCount) => {
   let metadata = metadataList.find((meta) => meta.custon_fields.edition == _editionCount);
   debugLogs
@@ -314,6 +319,7 @@ const saveMetaDataSingleFile = (_editionCount) => {
     JSON.stringify(metadata, null, 2)
   );
 };
+
 
 function shuffle(array) {
   let currentIndex = array.length,
@@ -397,8 +403,8 @@ const startCreating = async () => {
             ? console.log("Editions left to create: ", abstractedIndexes)
             : null;
           saveImage(abstractedIndexes[0]);
-          addMetadata(newDna, abstractedIndexes[0]);
-          saveMetaDataSingleFile(abstractedIndexes[0]);
+          //addMetadata(newDna, abstractedIndexes[0]);
+          //saveMetaDataSingleFile(abstractedIndexes[0]);
           console.log(
             `Created edition: ${abstractedIndexes[0]}, with DNA: ${sha1(
               newDna
