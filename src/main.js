@@ -307,7 +307,7 @@ const writeMetaData = (_data) => {
 
 
 const saveMetaDataSingleFile = (_editionCount) => {
-  let metadata = metadataList.find((meta) => meta.custon_fields.edition == _editionCount);
+  let metadata = metadataList.find((meta) => meta.custom_fields.edition == _editionCount);
   debugLogs
     ? console.log(
         `Writing metadata for ${_editionCount}: ${JSON.stringify(metadata)}`
@@ -318,7 +318,6 @@ const saveMetaDataSingleFile = (_editionCount) => {
     JSON.stringify(metadata, null, 2)
   );
 };
-
 
 function shuffle(array) {
   let currentIndex = array.length,
@@ -402,8 +401,8 @@ const startCreating = async () => {
             ? console.log("Editions left to create: ", abstractedIndexes)
             : null;
           saveImage(abstractedIndexes[0]);
-          //addMetadata(newDna, abstractedIndexes[0]);
-          //saveMetaDataSingleFile(abstractedIndexes[0]);
+          addMetadata(newDna, abstractedIndexes[0]);
+          saveMetaDataSingleFile(abstractedIndexes[0]);
           console.log(
             `Created edition: ${abstractedIndexes[0]}, with DNA: ${sha1(
               newDna
