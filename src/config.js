@@ -27,6 +27,9 @@ const layerConfigurations = [
     growEditionSizeTo: 1000,
     layersOrder: [
       { name: "Background" },
+      { name: "Watermark" , {
+        options: { bypassDNA: true; } } 
+      },
       { name: "ScissorsPaperRock" },
       { name: "Eyes" },
       { name: "Moustache" },
