@@ -7,7 +7,7 @@ const network = NETWORK.eth;
 // General metadata for Ethereum
 const namePrefix = "ScissorsPaperRock";
 const description = "Remember that game we all use to play? Get ready to collect the (limited range) of NFT's!";
-const baseUri = "ipfs://NewUriToReplace";
+const baseUri = "image.png";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -76,7 +76,28 @@ const background = {
   default: "#000000",
 };
 
-const extraMetadata = {};
+const extraMetadata = {
+  "seller_fee_basis_points": 300, // this defines your royalties (250 = 2.5% || 1000 = 10% || etc)
+  "collection": {
+    "name": "ScissorsPaperRock", // the name of your collection
+    "family": "ScissorsPaperRock" //the family of your collection
+  },
+  "properties": {
+    "files": [
+      {
+        "uri": "image.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "0x701C462BF86DBc2bd0C3e77C9a53De38B9A984eD", // the address you want to receive your payments
+        "share": 100
+      }
+    ]
+  }
+};
 
 const rarityDelimiter = "#";
 
