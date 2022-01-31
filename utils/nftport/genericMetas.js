@@ -22,6 +22,7 @@ fs.readdirSync(`${buildDir}/json`).forEach((file) => {
     // This is an example url, replace with yours.
   delete jsonFile.attributes;
   delete jsonFile.custom_fields.dna;
+  delete jsonFile.properties.files;
 
   fs.writeFileSync(
     `${buildDir}/genericJson/${file}`,
