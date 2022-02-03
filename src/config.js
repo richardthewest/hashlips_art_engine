@@ -15,7 +15,7 @@ const solanaMetadata = {
   external_url: "https://opensea.io/SirWest",
   creators: [
     {
-      address: "0x701c462bf86dbc2bd0c3e77c9a53de38b9a984ed",
+      address: "0x701C462BF86DBc2bd0C3e77C9a53De38B9A984eD",
       share: 100,
     },
   ],
